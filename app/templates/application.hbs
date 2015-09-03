@@ -1,3 +1,39 @@
+<header>
+  <h1>Nurhadi's Blog</h1>
+</header>
+
 <h2 id="title">Welcome to Ember</h2>
 
-{{outlet}}
+{{#if isLogin}}
+  <p>Hello, <strong>{{firstName}} {{lastName}}</strong>!</p>
+{{else}}
+  <p>Hello, Please sign in!</p>
+{{/if}}
+
+<h4>List of Families</h4>
+{{#if isLogin}}
+  <ul style="list-style:none;">
+  {{#each families as |family index|}}
+    <li>Hello, <strong>{{family}}</strong>! You're number <strong>{{index}}</strong> on the listing.</li>
+  {{/each}}
+  </ul>
+{{/if}}
+
+<h4>List of Enemies</h4>
+{{#if isLogin}}
+  <ul style="list-style:none;">
+  {{#each enemies as |enemy index|}}
+    <li>Hello, <strong>{{enemy}}</strong>! You're number <strong>{{index}}</strong> on the listing.</li>
+  {{else}}
+    <li>Hello, You don't have any enemies</li>
+  {{/each}}
+  </ul>
+{{/if}}
+
+<div>
+  {{outlet}}
+</div>
+
+<footer>
+  &copy;2015 Nurhadi's Publishing, Inc.
+</footer>
